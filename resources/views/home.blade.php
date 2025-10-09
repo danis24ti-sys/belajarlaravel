@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    	<link rel="stylesheet" href="{{ asset('assets/css/custom-style.css') }}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Laravel App</title>
@@ -56,7 +57,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
-            <a class="navbar-brand" href="#">My App</a>
+            <img class="logo" src="{{ asset('assets/images/logo.jpg') }}" alt="Logo">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -83,7 +84,7 @@
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="container">
-            <h1>Welcome to My App</h1>
+            <h1 class="font-custom">Welcome to My App</h1>
             <p class="lead">A simple and elegant app using Bootstrap 5 and Laravel Blade</p>
             <a href="#content" class="btn btn-light btn-lg mt-3">Learn More</a>
         </div>
@@ -108,6 +109,11 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Form Pertanyaan</h5>
+                        @if (session('info'))
+                            <div class="alert alert-info">
+                                {!! session('info') !!}
+                            </div>
+                        @endif
                         <form action="{{ route('question.store') }}" method="POST">
                             @csrf
 

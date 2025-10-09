@@ -27,7 +27,33 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       // dd($request->all());
+       $data['nama'] =$request->nama;
+        $data['email'] =$request->email;
+       $data['pertanyaan'] =$request->pertanyaan;
+
+        // $request->validate([
+        //     'nama'  => 'required|max:10',
+        //     'email' => ['required','email'],
+        //     'pertanyaan' => 'required|max:300|min:8',
+        // ]);[
+        //     'nama.required'=>'Nama tidak boleh kosong',
+        //     'email.email'=> 'email tidak valid'
+        // ];
+
+
+        // return redirect()->back()->with('info', $pesan);
+
+        // return redirect()->route('home');
+
+
+        // return view('home-question-respon', $data);
+
+
+        return redirect()->route('home')->with('info', 'Terimakasih , pertanyaan anda telah terkirim' );
+
+
+        // return redirect()->away('https://pcr.ac.id');    
     }
 
     /**
