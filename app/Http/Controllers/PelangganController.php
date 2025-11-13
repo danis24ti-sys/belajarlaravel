@@ -11,11 +11,10 @@ class PelangganController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-
-    {
-        //
-    }
+    public function index(){
+		$data['dataPelanggan'] = Pelanggan::all();
+		return view('admin.pelanggan.index',$data);
+}
 
     /**
      * Show the form for creating a new resource.
@@ -55,10 +54,10 @@ class PelangganController extends Controller
      * Show the form for editing the specified resource.
      */
     public function edit(string $id)
-    {
-        //
-    }
-
+{
+    $data['dataPelanggan'] = Pelanggan::findOrFail($id);
+    return view('admin.pelanggan.edit', $data);
+}
     /**
      * Update the specified resource in storage.
      */
